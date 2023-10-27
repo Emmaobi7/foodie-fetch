@@ -4,6 +4,7 @@ sqlalchemy with mysql
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
+from flask_login import UserMixin
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -11,7 +12,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
-class User(Base):
+class User(Base, UserMixin):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
