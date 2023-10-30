@@ -31,6 +31,10 @@ session = Session()
 @login_manager.user_loader
 def load_user(id):
     return session.query(User).get(int(id))
-session.flush()
-session.close()
+
+@app.teardown_appcontext
+def close_db(error):
+    session.close()
+
+
 Base.metadata.create_all(bind=engine)
