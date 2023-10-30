@@ -31,5 +31,5 @@ SQLAlchemy==1.4.32
 ssh-import-id==5.10
 unattended-upgrades==0.1
 urllib3==1.25.8
-werkzeug==3.0.0
+werkzeug==2.3.0
 zipp==3.17.0
