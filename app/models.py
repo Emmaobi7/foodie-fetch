@@ -16,9 +16,9 @@ class User(Base, UserMixin):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
-    last_name = Column(String(50), nullable=False)
+    last_name = Column(String(50))
     email = Column(String(50), nullable=False, unique=True)
-    password = Column(String(50), nullable=False)
+    password = Column(String(300), nullable=False)
     state = Column(String(20))
     city = Column(String(50))
     product = relationship("Product", back_populates="user")
@@ -72,6 +72,6 @@ class Review(Base):
     user = relationship('User', back_populates='review')
 
 class ProductCart(Base):
-    __tablename__ = 'combined_pc'
+    __tablename__ = 'combine_pc'
     product_id = Column(Integer, ForeignKey('products.id'), primary_key=True)
     cart_id = Column(Integer, ForeignKey('cart.id'), primary_key=True)
