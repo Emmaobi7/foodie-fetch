@@ -6,7 +6,10 @@
 {% block content %}
 
 
-<form method="POST">
+
+
+
+<form method="POST" action="{{ url_for('auth.sign_up') }}">
   <h3>Sign up</h3>
   <div class="mb-3">
     <label for="firstName" class="form-label">First Name</label>
