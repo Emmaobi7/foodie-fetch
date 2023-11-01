@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import httpClient from '../httpClient';
+import '../signin.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Add your login logic here
     console.log('Email:', email);
     console.log('Password:', password);
+
+    try {
+      const resp = await httpClient.post("", {
+        email,
+        password,
+      });
+
+      window.location.href = "/";
+    } catch (error: any) {
+      if (resp.status == 401) {
+        alert("Invalid credentials")
+      }
+    }
   };
 
   return (
