@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titie %}Sign up{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+<form method="POST" action="{{ url_for('auth.sign_up') }}">
+  <h3>Sign up</h3>
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text"class="form-control" id="FirstName" name="FirstName">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password1" name="password1">
+  </div>
+  <div class="mb-3">
+    <label for="password2" class="form-label">confirm password</label>
+    <input type="password" class="form-control" id="password2" name="password2">
+    <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
