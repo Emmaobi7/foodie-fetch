@@ -30,9 +30,10 @@ class User(Base, UserMixin):
 class Product(Base):
     __tablename__ = 'products'
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)
-    category = Column(String(50), nullable=False)
-    description = Column(String(1000), nullable=False)
+    title = Column(String(500), nullable=False)
+    category = Column(String(500), nullable=False)
+    description = Column(String(5000), nullable=False)
+    image = Column(String(500))
     status = Column(Boolean, nullable=True)
     price = Column(Integer, nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
