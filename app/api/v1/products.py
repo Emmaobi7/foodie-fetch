@@ -25,6 +25,7 @@ def get_product_all():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @products.route('/products/<int:product_id>')
 def get_product_id(product_id):
     from app import Session
@@ -49,7 +50,6 @@ def get_product_id(product_id):
 @products.route('/products/search/<string:query>')
 def search_product(query):
     from app import Session
-    print(f'search query: {query}')
     try:
         session = Session()
         search_list = []
