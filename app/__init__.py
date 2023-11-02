@@ -24,7 +24,7 @@ engine = create_engine('mysql+mysqlconnector://foodie_dev:foodie_pwd@localhost:3
 Session = sessionmaker(bind=engine)
 
 app.register_blueprint(auth, url_prefix="/auth")
-app.register_blueprint(views, url_prefix="/auth")
+app.register_blueprint(views)
 app.register_blueprint(products, url_prefix="/api/v1")
 app.register_blueprint(categories, url_prefix="/api/v1")
 
