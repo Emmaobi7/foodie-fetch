@@ -9,7 +9,7 @@ from .models import User
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
     from . import Session
     if request.method == 'POST':

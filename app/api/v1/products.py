@@ -26,7 +26,7 @@ def get_product_all():
         return jsonify({'error': str(e)}), 500
 
 
-@products.route('/products/<int:product_id>')
+@products.route('/products/<int:product_id>', methods=['GET'])
 def get_product_id(product_id):
     from app import Session
     product_dict = {}
@@ -47,7 +47,7 @@ def get_product_id(product_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@products.route('/products/search/<string:query>')
+@products.route('/products/search/<string:query>', methods=['GET'])
 def search_product(query):
     from app import Session
     try:
