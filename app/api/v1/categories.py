@@ -3,7 +3,7 @@ from app.models import Product
 
 categories = Blueprint('categories', __name__)
 
-@categories.route('/categories')
+@categories.route('/categories', methods=['GET'])
 def get_category_all():
     from app import Session
     try:
