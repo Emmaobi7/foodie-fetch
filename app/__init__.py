@@ -12,6 +12,7 @@ from flask_login import LoginManager
 from .models import User
 from .v_api import fetch_and_store_products
 from app.api.v1.products import products
+from app.api.v1.categories import categories
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'averysecuresomething'
@@ -25,6 +26,7 @@ Session = sessionmaker(bind=engine)
 app.register_blueprint(auth)
 app.register_blueprint(views)
 app.register_blueprint(products, url_prefix="/api/v1")
+app.register_blueprint(categories, url_prefix="/api/v1")
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
