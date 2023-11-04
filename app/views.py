@@ -2,10 +2,11 @@
 app views and logic
 """
 
-from flask import Blueprint
+from flask import Blueprint, redirect, url_for
 from flask import Flask, render_template
 from .models import Product, Cart
 from flask_login import current_user
+import paypalrestsdk
 
 views = Blueprint('views', __name__)
 
@@ -52,3 +53,38 @@ def remove_cart(product_id):
 @views.route('/cart')
 def view_cart():
     return "Foodie cart"
+    
+@views.route('/checkout/<float:price>')
+def paypal_checkout(price):
+    payment = paypalrestsdk.Payment({
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"
+        },
+        "transactions": [{
+            "amount": {
+                "total": str(price),
+                "currency": "USD"
+            },
+            "description": "Purchase description"
+        }],
+        "redirect_urls": {
+            "return_url": url_for('views.paypal_success', _external=True),
+            "cancel_url": url_for('views.paypal_cancel', _external=True)
+        }
+    })
+
+    if payment.create():
+        #print("Created")
+        approval_url = next(link.href for link in payment.links if link.rel == "approval_url")
+        return redirect(approval_url)
+    else:
+        return "Payment creation failed"
+
+@views.route('/success')
+def paypal_success():
+    return "Payment successful! Thank you."
+
+@views.route('/cancelled')
+def paypal_cancel():
+    return "Payment cancelled. Please try again."
