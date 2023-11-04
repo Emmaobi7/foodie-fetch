@@ -12,6 +12,7 @@ from flask_login import LoginManager
 from .models import User
 from .v_api import fetch_and_store_products
 from app.api.v1.products import products
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'averysecuresomething'
@@ -25,6 +26,8 @@ Session = sessionmaker(bind=engine)
 app.register_blueprint(auth)
 app.register_blueprint(views)
 app.register_blueprint(products, url_prefix="/api/v1")
+CORS(app, supports_credentials=True)
+CORS(views)
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
@@ -45,4 +48,4 @@ Base.metadata.create_all(bind=engine)
 """
 uncomment to populate database with fake store api
 """
-#fetch_and_store_products()
+# fetch_and_store_products()

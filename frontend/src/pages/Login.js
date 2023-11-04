@@ -8,23 +8,23 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    // Add your login logic here
     console.log('Email:', email);
     console.log('Password:', password);
 
     try {
-      const resp = await httpClient.post("", {
+      const resp = await httpClient.post("localhost:5000/login", {
         email,
         password,
       });
+      console.log(resp)
 
       window.location.href = "/";
-    } catch (error: any) {
-      if (resp.status == 401) {
+    } catch (error) {
+      
         alert("Invalid credentials")
-      }
+  
     }
-  };
+    };
 
   return (
     <div className="login-container">

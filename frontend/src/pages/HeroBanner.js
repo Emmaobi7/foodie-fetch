@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-
+// import veges from './veges1.jpg';
 
 const HeroBanner = () => {
   return (
@@ -9,8 +9,8 @@ const HeroBanner = () => {
         <div>
            <p className="beats-solo">SMALL TEXT</p>
            <h3>MID TEXT</h3>
-           <img src="" alt="vegetables"
-           className="hero-banner-image" />
+           {/* <img src={veges} alt="vegetables"
+           className="hero-banner-image" /> */}
 
            <div>
             <Link href="/product/ID">

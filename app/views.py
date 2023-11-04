@@ -22,7 +22,8 @@ def detail(product_id):
     session = Session()
     item = session.query(Product).filter_by(id=product_id).first()
     session.close()
-    return "A product's detail"
+    # return "A product's detail"
+    return item
 
 @views.route('/cart/<int:product_id>')
 def add_to_cart(product_id):
