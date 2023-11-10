@@ -2,7 +2,7 @@
 app views and logic
 """
 
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from flask import Flask, render_template
 from .models import Product, Cart
 from flask_login import current_user
@@ -23,7 +23,15 @@ def detail(product_id):
     item = session.query(Product).filter_by(id=product_id).first()
     session.close()
     # return "A product's detail"
-    return item
+    product_dict = {
+                    'id': item.id,
+                    'title': item.title,
+                    'price': item.price,
+                    'category': item.category,
+                    'image': item.image,
+                    'description': item.description
+                    }
+    return jsonify(product_dict)
 
 @views.route('/cart/<int:product_id>')
 def add_to_cart(product_id):

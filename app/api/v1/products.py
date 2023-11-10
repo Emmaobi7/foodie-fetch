@@ -39,6 +39,7 @@ def get_product_id(product_id):
                     'title': product.title,
                     'price': product.price,
                     'category': product.category,
+                    'quantity': product.quantity,
                     'image': product.image,
                     'description': product.description
                     }

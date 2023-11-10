@@ -7,14 +7,14 @@ const HeroBanner = () => {
   return (
     <div className="hero-banner-container">
         <div>
-           <p className="beats-solo">SMALL TEXT</p>
-           <h3>MID TEXT</h3>
+           <p className="beats-solo">Nigeria's most Efficient Ecommerce Store</p>
+           <h3>FOODIE FETCH</h3>
            {/* <img src={veges} alt="vegetables"
            className="hero-banner-image" /> */}
 
            <div>
             <Link href="/product/ID">
-                <button type="button"> BUTTON TEXT </button>
+                <button type="button"> SHOP NOW! </button>
             </Link>
             
             <div className="desc">

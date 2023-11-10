@@ -6,8 +6,8 @@ const Product = ({ product: { category, description, id,
   image, price,title
 }}) => {
   return (
-    <div>
-      <Link href={`/product/${id}`}>
+    <div className={`product-card ${category}`}> 
+      <Link to={`/product/${id}`}>
         <div className="product-card">
           <img
             src={image}

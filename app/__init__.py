@@ -15,7 +15,7 @@ from app.api.v1.products import products
 from flask_cors import CORS
 from app.api.v1.categories import categories
 from app.api.v1.auth import auth_api
-from app.api.v1.cart import cart_api
+# from app.api.v1.cart import cart_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'averysecuresomething'
@@ -33,7 +33,7 @@ app.register_blueprint(products, url_prefix="/api/v1")
 CORS(app, supports_credentials=True)
 CORS(views)
 app.register_blueprint(categories, url_prefix="/api/v1")
-app.register_blueprint(cart_api, url_prefix="/api/v1")
+# app.register_blueprint(cart_api, url_prefix="/api/v1")
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth_api.login'

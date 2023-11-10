@@ -316,7 +316,7 @@ text-align: end;
   gap: 2px;
   margin-left: 10px;
   border: none;
-  background-color: transparent;
+  background-color: teal;
 }
 
 .cart-heading .heading{
@@ -382,7 +382,8 @@ padding: 20px 10px;
   font-size: 24px;
   color: #f02d34;
   cursor: pointer;
-  background: transparent;
+  background: white;
+  width: 40px;
   border: none;
 }
 .cart-bottom{

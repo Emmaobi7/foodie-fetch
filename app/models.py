@@ -34,6 +34,7 @@ class Product(Base):
     category = Column(String(500), nullable=False)
     description = Column(String(5000), nullable=False)
     image = Column(String(500))
+    # quantity = Column(Integer, nullable=False)
     status = Column(Boolean, nullable=True)
     price = Column(Integer, nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
