@@ -38,6 +38,7 @@
 * 'app/auth/login': for logging in users
 * ### #Usage:
 * fieldnames must contain exactly 'email' and 'password'
+  ### GET requests only
 * 'app/v1/products': for getting a listing of all our producuts
 * 'app/v1/products/{product_id}: for a particular product
 * 'app/v1/products/search/{query}: to sort the database by titile and description
