@@ -35,7 +35,9 @@
   ### POST requests
 * 'app/auth/sign_up': for registering users to the database
   ### #Usage:
-* fieldnames must contain exactly 'first_name', 'email, 'password1, 'password2' in any order. 
+* fieldnames must contain exactly 'first_name', 'email, 'password1, 'password2' in any order.
+
+  
 * 'app/auth/login': for logging in users
   ### #Usage:
 * fieldnames must contain exactly 'email' and 'password'
