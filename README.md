@@ -33,10 +33,10 @@
 * This project uses a react js frontend and a python backend api with these endpoints:
 ## API
 * 'app/auth/sign_up': for registering users to the database
-* ### Usage:
+* ### #Usage:
 * fieldnames must contain exactly 'first_name', 'email, 'password1, 'password2' in any order. 
 * 'app/auth/login': for logging in users
-* ### Usage:
+* ### #Usage:
 * fieldnames must contain exactly 'email' and 'password'
 * 'app/v1/products': for getting a listing of all our producuts
 * 'app/v1/products/{product_id}: for a particular product
