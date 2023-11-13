@@ -1,3 +1,7 @@
+"""
+Handles getting products from the database
+By id and seach functinality
+"""
 from flask import Blueprint, jsonify
 from app.models import Product
 
@@ -5,6 +9,10 @@ products = Blueprint('products', __name__)
 
 @products.route('/products', methods=['GET'])
 def get_product_all():
+    """
+    get_product_all(): endpoint for retieving all
+                        products in database
+    """
     from app import Session
     try:
         session = Session()
@@ -28,6 +36,11 @@ def get_product_all():
 
 @products.route('/products/<int:product_id>', methods=['GET'])
 def get_product_id(product_id):
+    """
+    get_product_id: endpoint to retrieve a product by id
+    Args:
+        product_id: an existing product id
+    """
     from app import Session
     product_dict = {}
     try:
@@ -49,6 +62,11 @@ def get_product_id(product_id):
 
 @products.route('/products/search/<string:query>', methods=['GET'])
 def search_product(query):
+    """
+    search_product: endpoint for sorting database
+    Args:
+         query: by product title and category
+    """
     from app import Session
     try:
         session = Session()
