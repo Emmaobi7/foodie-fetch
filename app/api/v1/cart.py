@@ -30,4 +30,3 @@ def add_to_cart():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
