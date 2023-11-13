@@ -1,5 +1,5 @@
 # FOODIE FETCH
-* foodie-fetch is a convenient and user friendly **FOOD** purchase and delivery app that brings the flavours of you favouorite delicacies to your doorstep.Graving for a snack or your traditional incredients? **foodie** got you covered.
+* foodie-fetch is a convenient and user friendly **FOOD** purchase and delivery app that brings the flavours of you favouorite delicacies to your doorstep. Graving for a snack or your traditional incredients? **foodie** got you covered.
 
 # TABLE OF CONTENTS
 <ol>
@@ -17,7 +17,7 @@
 * This project was built on ubuntu 20, so once you've got your ubuntu 20 clone this repo and get started
 
 ## Prerequisites
-* This libraries are required to run this project python 3.6xx and flask and sqlalchemy  with other libraries which would be authomatically installed in the **installation section**
+* This libraries are required to run this project python 3.6xx and flask and sqlalchemy and react js with other libraries which would be authomatically installed in the **installation section**
 
 ## Installation
 * simply execute the below command to get all the build libraries in your setup
@@ -32,8 +32,16 @@
 #Usage
 * This project uses a react js frontend and a python backend api with these endpoints:
 ## API
+  ### POST requests
 * 'app/auth/sign_up': for registering users to the database
+  ### #Usage:
+* fieldnames must contain exactly 'first_name', 'email, 'password1, 'password2' in any order.
+
+  
 * 'app/auth/login': for logging in users
+  ### #Usage:
+* fieldnames must contain exactly 'email' and 'password'
+  ### GET requests only
 * 'app/v1/products': for getting a listing of all our producuts
 * 'app/v1/products/{product_id}: for a particular product
 * 'app/v1/products/search/{query}: to sort the database by titile and description
@@ -43,3 +51,6 @@
 * for contributions feel free to fork the repo and you can reach us via our email at 'emma46574@gmail.com'
 
 # Acknowlegements
+* Emma obinna (backend)
+* sharaff (frontend)
+* diane ezinne (frontend)
