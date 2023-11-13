@@ -17,7 +17,7 @@
 * This project was built on ubuntu 20, so once you've got your ubuntu 20 clone this repo and get started
 
 ## Prerequisites
-* This libraries are required to run this project python 3.6xx and flask and sqlalchemy  with other libraries which would be authomatically installed in the **installation section**
+* This libraries are required to run this project python 3.6xx and flask and sqlalchemy and react js with other libraries which would be authomatically installed in the **installation section**
 
 ## Installation
 * simply execute the below command to get all the build libraries in your setup
