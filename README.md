@@ -43,3 +43,6 @@
 * for contributions feel free to fork the repo and you can reach us via our email at 'emma46574@gmail.com'
 
 # Acknowlegements
+* Emma obinna (backend)
+* sharaff (frontend)
+* diane ezinne (frontend)
