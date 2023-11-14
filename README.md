@@ -1,4 +1,4 @@
-# FOODIE FETCH
+# GOODIE FETCH
 * goodie-fetch is a convenient and user friendly **product** purchase and delivery app that brings the your favourite products ranging from clothes, home appliances, furnitures and lots more to your doorstep. Need to refurnish your home or change your wardrope **goodie** got you covered.
 
 # TABLE OF CONTENTS
