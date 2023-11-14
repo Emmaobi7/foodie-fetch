@@ -74,6 +74,7 @@ width: 100%;
   color: gray;
   cursor: pointer;
   position: relative;
+  width: 35px;
   transition: transform .4s ease;
   border: none;
   background-color: transparent;
@@ -90,7 +91,7 @@ width: 100%;
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  text-align: center;
+  text-align: row;
   font-weight: 600;
 
 }
@@ -166,6 +167,7 @@ width: 100%;
   text-transform: uppercase;
 }
 .hero-banner-image{
+  grid: flex;
   position: absolute;
   top: 0%;
   right:20%;
@@ -314,7 +316,7 @@ text-align: end;
   gap: 2px;
   margin-left: 10px;
   border: none;
-  background-color: transparent;
+  background-color: teal;
 }
 
 .cart-heading .heading{
@@ -380,7 +382,8 @@ padding: 20px 10px;
   font-size: 24px;
   color: #f02d34;
   cursor: pointer;
-  background: transparent;
+  background: white;
+  width: 40px;
   border: none;
 }
 .cart-bottom{

@@ -10,9 +10,10 @@ from flask_login import LoginManager
 from .models import User
 from .v_api import fetch_and_store_products
 from app.api.v1.products import products
+from flask_cors import CORS
 from app.api.v1.categories import categories
 from app.api.v1.auth import auth_api
-from app.api.v1.cart import cart_api
+# from app.api.v1.cart import cart_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'averysecuresomething'
@@ -25,8 +26,11 @@ Session = sessionmaker(bind=engine)
 # app blueprints
 app.register_blueprint(auth_api, url_prefix="/auth")
 app.register_blueprint(products, url_prefix="/api/v1")
+
+CORS(app, supports_credentials=True)
+CORS(views)
 app.register_blueprint(categories, url_prefix="/api/v1")
-app.register_blueprint(cart_api, url_prefix="/api/v1")
+# app.register_blueprint(cart_api, url_prefix="/api/v1")
 
 # login manager
 login_manager = LoginManager()
@@ -49,4 +53,4 @@ Base.metadata.create_all(bind=engine)
 """
 uncomment to populate database with fake store api
 """
-#fetch_and_store_products()
+# fetch_and_store_products()
