@@ -1,3 +1,7 @@
+"""
+Handles user authentication
+sign_up, login and logout
+"""
 from flask import Blueprint, request, jsonify
 from flask_login import login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -7,6 +11,9 @@ auth_api = Blueprint('auth_api', __name__)
 
 @auth_api.route('/sign_up', methods=['POST'])
 def sign_up():
+    """
+    sign_up: endpoint for user registration
+    """
     from app import Session
     data = request.get_json()
 
@@ -42,6 +49,9 @@ def sign_up():
 
 @auth_api.route('/login', methods=['POST'])
 def login():
+    """
+    login: endpoint for user login
+    """
     from app import Session
     data = request.get_json()
 
@@ -68,6 +78,9 @@ def login():
 
 @auth_api.route('/logout', methods=['POST'])
 def logout():
+    """
+    logout: logout user
+    """
     logout_user()
     return jsonify({'message': 'Logout successful'}), 200
 

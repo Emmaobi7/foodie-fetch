@@ -1,3 +1,6 @@
+"""
+Handles the add to cart funtionality
+"""
 from flask import Blueprint, request, jsonify
 from app.models import Cart
 
@@ -5,6 +8,10 @@ cart_api = Blueprint('cart_api', __name__)
 
 @cart_api.route('/add_to_cart', methods=['POST'])
 def add_to_cart():
+    """
+    add_to_cart: endpoint implements the cart func
+    accepsts: json datatype
+    """
     from app import Session
     try:
         data = request.get_json()
