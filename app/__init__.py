@@ -28,7 +28,6 @@ app.register_blueprint(auth_api, url_prefix="/auth")
 app.register_blueprint(products, url_prefix="/api/v1")
 
 CORS(app, supports_credentials=True)
-CORS(views)
 app.register_blueprint(categories, url_prefix="/api/v1")
 # app.register_blueprint(cart_api, url_prefix="/api/v1")
 
