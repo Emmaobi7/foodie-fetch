@@ -6,10 +6,13 @@ from flask_login import current_user, login_user, logout_user
 from flask import Blueprint, flash, request, url_for, redirect, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
+from flask_cors import CORS, cross_origin
+
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
+@cross_origin()
 def sign_up():
     from . import Session
     if request.method == 'POST':
@@ -42,6 +45,7 @@ def sign_up():
 
 
 @auth.route('/login', methods=['GET', 'POST'])
+@cross_origin()
 def login():
     from . import Session
     if request.method == 'POST':
@@ -65,6 +69,7 @@ def login():
                 
 
 @auth.route('/logout')
+@cross_origin()
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))

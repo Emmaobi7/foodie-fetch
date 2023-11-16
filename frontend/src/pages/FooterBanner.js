@@ -9,7 +9,7 @@ const FooterBanner = () => {
         <div className="left">
           <p>DISCOUNT</p>
           <h3>20% OFF</h3>
-          <h3>BAG OF GARI</h3>
+          <h3>COLD SWEATERS</h3>
           <p>SALESTIME</p>
 
         </div>

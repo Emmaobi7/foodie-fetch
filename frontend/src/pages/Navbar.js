@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { RiHomeFill } from 'react-icons/ri';
 import { ShoppingCart } from "phosphor-react";
 import  Cart  from './Cart';
-// import { useStateContext } from './context/StateContext';
 import { ShopContext } from "./context/AppContext";
 
 
@@ -13,7 +13,9 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
         <p>
-            <Link href="/">Foodie-fetch</Link>
+            <Link className="home-icon" href="/">
+              <RiHomeFill />
+            </Link>
         </p>
         <button type="button"
           className="cart-icon"

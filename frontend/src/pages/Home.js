@@ -36,8 +36,8 @@ const Home = () => {
       <HeroBanner/>
 
         <div className="products-heading">
-          <h2> Best food ingredients </h2>
-          <p> swallows and vegetables of all sorts </p>
+          <h2> Best electronics products </h2>
+          <p> Electronic Gadjets of all Sorts </p>
         </div>
         
         <div className="products-container">

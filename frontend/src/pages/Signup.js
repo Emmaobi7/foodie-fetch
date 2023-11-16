@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import httpClient from '../httpClient';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import '../signin.css';
 
+
 const SignUp = () => {
+ 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,14 +18,25 @@ const SignUp = () => {
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
+    console.log('Confirmpassword:', confirmPassword);
 
-    const resp = await httpClient.post("http://localhost:5000/sign-up", {
-      email,
-      password,
-    });
-    console.log(resp);
+    // formData = {name, email, password};
 
-    window.location.href = "/";
+    try {
+      const resp = await fetch('http://localhost:5000/auth/sign_up', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({'first_name': name, 'email': email, 'password1': password, 'password2': confirmPassword})
+    })
+      window.location.href = "/login";
+      console.log(resp);
+    } catch (error) {
+    // Handle network errors, server errors, or any other exceptions
+    console.error('Error during registration:', error.message);
+    // Display an error message to the user or take appropriate actions
+    }
   };
 
   const schema = yup.object().shape({
@@ -36,7 +49,11 @@ const SignUp = () => {
       .required()
   });
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+
 
   const onSubmit = (data) => {
     console.log(data); // data contains the form input values
@@ -83,8 +100,8 @@ const SignUp = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <button type="submit">SignUp</button>
-        <span> Do you have an account? <Link to="/login">Login</Link></span>
+        <button className="button" type="submit">SignUp</button>
+        <span> Do you have an account? <Link className="link" to="/login">Login</Link></span>
       </form>
     </div>
   );

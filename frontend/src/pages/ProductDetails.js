@@ -4,14 +4,13 @@ import { useParams } from 'react-router-dom';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar,
 AiOutlineStar } from 'react-icons/ai';
 import { ShopContext } from "./context/AppContext";
+// import Product from './Product';
 
 
 const ProductDetails = () => {
 	const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-	// const [cartItems, setCartItems] = useState([1, 2, 3]);
-	// const [qty, setQty] = useState(1);
 	const { qty, incQty, decQty, AddToCart } = useContext(ShopContext);
 
 	// const [products, setProducts] = useState(null);
@@ -49,12 +48,15 @@ const ProductDetails = () => {
 
 	if (loading) {
 		return <p>Loading...</p>;
-	  }
+	}
 	
 	if (!product) {
 	    return <p>Product not found.</p>;
 	}
 	
+	// if (!products) {
+	//     return <p>Product not found.</p>;
+	// }
 	
 	return (
 		<div>

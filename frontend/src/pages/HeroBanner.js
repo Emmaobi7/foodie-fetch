@@ -8,7 +8,7 @@ const HeroBanner = () => {
     <div className="hero-banner-container">
         <div>
            <p className="beats-solo">Nigeria's most Efficient Ecommerce Store</p>
-           <h3>FOODIE FETCH</h3>
+           <h3>GOODIE FETCH</h3>
            {/* <img src={veges} alt="vegetables"
            className="hero-banner-image" /> */}
 
