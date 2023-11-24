@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
 	useEffect(() => {
 		// Define the URL of your Flask backend endpoint to fetch a specific product by its ID
-		const apiUrl = `http://localhost:5000/product/${id}`;
+		const apiUrl = `http://localhost:5000/api/v1/products/${id}`;
 	
 		axios.get(apiUrl)
 		  .then((response) => {

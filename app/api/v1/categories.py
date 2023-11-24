@@ -1,3 +1,6 @@
+"""
+Handles product categories
+"""
 from flask import Blueprint, jsonify
 from app.models import Product
 
@@ -5,6 +8,10 @@ categories = Blueprint('categories', __name__)
 
 @categories.route('/categories', methods=['GET'])
 def get_category_all():
+    """
+    get_categor_all: endpoint to retrieve all categories in the database
+    return: json datatype
+    """
     from app import Session
     try:
         session = Session()
