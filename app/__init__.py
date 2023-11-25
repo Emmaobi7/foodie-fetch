@@ -13,23 +13,25 @@ from app.api.v1.products import products
 from flask_cors import CORS
 from app.api.v1.categories import categories
 from app.api.v1.auth import auth_api
-# from app.api.v1.cart import cart_api
+# from app.api.vi.payment import payment
+from app.api.v1.cart import cart_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'averysecuresomething'
 
-
 # database connection
 engine = create_engine('mysql+mysqlconnector://foodie_dev:foodie_pwd@localhost:3306/foodie_db', pool_size=30, max_overflow=15, pool_pre_ping=True)
 Session = sessionmaker(bind=engine)
-
 # app blueprints
 app.register_blueprint(auth_api, url_prefix="/auth")
 app.register_blueprint(products, url_prefix="/api/v1")
+# app.register_blueprint(payment, url_prefix="/api/v1")
 
 CORS(app, supports_credentials=True)
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "PUT", "DELETE"], "headers": ["Content-Type", "Authorization"]}})
+CORS(app)
 app.register_blueprint(categories, url_prefix="/api/v1")
-# app.register_blueprint(cart_api, url_prefix="/api/v1")
+app.register_blueprint(cart_api, url_prefix="/api/v1")
 
 # login manager
 login_manager = LoginManager()

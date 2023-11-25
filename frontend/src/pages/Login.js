@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import httpClient from '../httpClient';
 import '../signin.css';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,25 +12,26 @@ const Login = () => {
     console.log('Password:', password);
 
     try {
-      const resp = await httpClient.post("localhost:5000/login", {
-        email,
-        password,
-      });
-      console.log(resp)
+      const resp = await fetch('http://localhost:5000/auth/sign_up', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'email': email, 'password': password})
+      })
 
+      console.log(resp);
       window.location.href = "/";
     } catch (error) {
-      
-        alert("Invalid credentials")
-  
+      console.log(error);
     }
     };
 
   return (
-    <div className="login-container">
+    <div className="registration-container">
       <h2>Login</h2>
       <form action="">
-      <div className="input-container">
+      <div className="log-input-container">
         <input
           type="text"
           value={email}
@@ -38,7 +39,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="input-container">
+      <div className="log-input-container">
         <input
           type="password"
           value={password}
@@ -47,8 +48,8 @@ const Login = () => {
         />
       </div>
       </form>
-      <button onClick={handleLogin}>Login</button>
-      <span> Don't have an account yet with foodie-fetch? <Link to="/SignUp">signup</Link></span>
+      <button className="log-button" type="submit" onClick={handleLogin}>Login</button>
+      <span> Don't have an account? <Link className="log-link" to="/SignUp">signup</Link></span>
     </div>
   );
 };
